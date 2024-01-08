@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>文章列表</title>
+    <link rel="shortcut icon" href="./static/images/logo.jpg" type="image/x-icon">
+    <link href="./lib/layui-v2.9.3/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <script src="./lib/layui-v2.9.3/layui/layui.js"></script>
+    <script src="./js/fackData.js"></script>
+    <div class="myNav layui-bg-gray">
+        <ul class="layui-nav layui-bg-gray">
+            <li class="layui-nav-item"><img class="nav-logo" src="./static/images/logo.jpg" alt="logo加载失败"></li>
+            <li class="layui-nav-item"><a href="./index.html">首页</a></li>
+            <li class="layui-nav-item"><a href="./list.html">文章列表</a></li>
+            <li class="layui-nav-item"><a href="./giveme.html">留言</a></li>
+            <li class="layui-nav-item"><a href="./aboutme.html">关于我</a></li>
+            <li class="layui-nav-item"><a href="./manage.html">新增文章</a></li>
+        </ul>
+    </div>
+    <div class="layui-container">
+        <div class="layui-row layui-col-space15">
+            <div>
+                <div class="grid-demo grid-demo-bg1 content-tag">
+                    <h2 style="color: red;">文章列表</h2>
+                    <script id="TPL" type="text/html">
+                        {{#  layui.each(d.list, function(index, item){ }}
+                        <div class="layui-panel">
+                            <div style="padding: 2%; display: flex; position: relative;">
+                                <img class="imgbase" src="{{= item.img}}" alt="文章img" style="float: left;">
+                                <div style="float: right;">
+                                    <h3>{{= item.title }}</h3>
+                                    <h4>&nbsp;&nbsp;&nbsp;&nbsp;{{= item.summary }}</h4>
+                                    <!-- 使用了layui的模板语法，爆红正常 -->
+                                    <div style="position: absolute; right: 0; bottom: 0;"><a onclick="toBasepage({{= item.id}})">查看全文</a></div>
+                                </div>
+                            </div>
+                      {{#  }); }}
+                      </script>
+                    <div id="view"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    layui.use(function () {
+        var laytpl = layui.laytpl;
+        // console.log(data);
+        var getTpl = document.getElementById('TPL').innerHTML; // 获取模板字符
+        var elemView = document.getElementById('view'); // 视图对象
+        // 渲染并输出结果
+        laytpl(getTpl).render(data, function (str) {
+            elemView.innerHTML = str;
+        });
+    });
+    layui.use(function () {
+        var laytpl = layui.laytpl;
+        // console.log(data);
+        var getTpl = document.getElementById('TPL').innerHTML; // 获取模板字符
+        var elemView = document.getElementById('view'); // 视图对象
+        // 渲染并输出结果
+        laytpl(getTpl).render(data, function (str) {
+            elemView.innerHTML = str;
+        });
+    });
+
+    let toBasepage = id => {
+        window.location.href = `./basepage.html?id=${id}`;
+    }
+</script>
+
+</html>

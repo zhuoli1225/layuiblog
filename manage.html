@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>文章管理</title>
+  <link rel="shortcut icon" href="./static/images/logo.jpg" type="image/x-icon">
+  <link href="./lib/layui-v2.9.3/layui/css/layui.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <script src="./lib/layui-v2.9.3/layui/layui.js"></script>
+
+    <div class="myNav layui-bg-gray">
+        <ul class="layui-nav layui-bg-gray">
+            <li class="layui-nav-item"><img class="nav-logo" src="./static/images/logo.jpg" alt="logo加载失败"></li>
+            <li class="layui-nav-item"><a href="./index.html">首页</a></li>
+            <li class="layui-nav-item"><a href="./list.html">文章列表</a></li>
+            <li class="layui-nav-item"><a href="./giveme.html">留言</a></li>
+            <li class="layui-nav-item"><a href="./aboutme.html">关于我</a></li>
+            <li class="layui-nav-item"><a href="./manage.html">新增文章</a></li>
+          </ul>
+    </div>
+    <div class="layui-container">
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+              <label class="layui-form-label">文章名称</label>
+              <div class="layui-input-block">
+                <input type="text" name="username" placeholder="请输入" autocomplete="off" class="layui-input">
+              </div>
+            </div>
+
+            <div class="layui-form-item">
+              <label class="layui-form-label">文章类型</label>
+              <div class="layui-input-block">
+                <select name="interest" lay-filter="aihao">
+                  <option value=""></option>
+                  <option value="0">日常</option>
+                  <option value="1" selected>技术</option>
+                  <option value="2">闲聊</option>
+                </select>
+              </div>
+            </div>  
+
+            <div class="layui-form-item">
+              <label class="layui-form-label">功能</label>
+              <div class="layui-input-block">
+                <input type="checkbox" name="arr[0]" title="讨论">
+                <input type="checkbox" name="arr[1]" title="评分" checked>
+                <input type="checkbox" name="arr[2]" title="推荐">
+              </div>
+            </div>
+
+            <div class="layui-form-item">
+              <label class="layui-form-label">可见</label>
+              <div class="layui-input-block">
+                <input type="radio" name="see" value="公共" title="公共" checked>
+                <input type="radio" name="see" value="私有" title="私有">
+              </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">文章简介</label>
+                <div class="layui-input-block">
+                  <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+              </div>
+            <div class="layui-form-item layui-form-text">
+              <label class="layui-form-label">文章正文</label>
+              <div class="layui-input-block">
+                <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <div class="layui-input-block">
+                <button id="sub" type="submit" class="layui-btn" lay-submit lay-filter="demo1">立即提交</button>
+              </div>
+            </div>
+          </form>
+    </div>
+   
+       
+</body>
+
+<script>
+    let btn = document.getElementById("sub");
+    btn.onclick = () => {
+        alert(`
+        假装新增成功！
+        这是个静态页面！所以不会真正的新增文章。
+        这一部分主要应用表单，使用了文本框、单选框、复选框和按钮。
+        还用js绑定了点击事件。
+        `)
+    }
+</script>
+
+</html>

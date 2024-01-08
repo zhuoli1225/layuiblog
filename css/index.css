@@ -1,0 +1,22 @@
+.myNav {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-logo {
+    height: 30%; 
+    width: 25%; 
+    border-radius: 50%;
+}
+
+.content-tag {
+    /* 偏白色细线边框 */
+    border: 1px solid #f1e7e7;
+    
+}
+
+.imgbase {
+    width: 10%;
+    height: 25%;
+    margin-right: 10px;
+}

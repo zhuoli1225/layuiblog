@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link rel="shortcut icon" href="./static/images/logo.jpg" type="image/x-icon">
+    <link href="./lib/layui-v2.9.3/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <script src="./lib/layui-v2.9.3/layui/layui.js"></script>
+    <script src="./js/fackData.js"></script>
+    <div class="myNav layui-bg-gray">
+        <ul class="layui-nav layui-bg-gray">
+            <li class="layui-nav-item"><img class="nav-logo" src="./static/images/logo.jpg" alt="logo加载失败"></li>
+            <li class="layui-nav-item"><a href="./index.html">首页</a></li>
+            <li class="layui-nav-item"><a href="./list.html">文章列表</a></li>
+            <li class="layui-nav-item"><a href="./giveme.html">留言</a></li>
+            <li class="layui-nav-item"><a href="./aboutme.html">关于我</a></li>
+            <li class="layui-nav-item"><a href="./manage.html">新增文章</a></li>
+        </ul>
+    </div>
+    <div class="layui-container">
+        <div class="layui-row layui-col-space15">
+            <div>
+                <div class="grid-demo grid-demo-bg1 content-tag">
+
+                    <script id="TPL" type="text/html">
+
+                        <div class="layui-panel">
+                            <div>
+                                <div style="display: flex; justify-content: center;">
+                                    <img class="" src="{{= d.img}}" alt="文章img">
+                                </div>
+                                <div style="float: right;">
+                                    <h3 style="text-align: center;">{{= d.title }}</h3>
+                                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{= d.content}}</p>
+                                </div>
+                            </div>
+
+                      </script>
+                    <div id="view"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    var pagedata;
+    let getpageId = () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id');
+        pagedata = data.list[id-1];
+        console.log(pagedata);
+    }
+    getpageId();
+    layui.use(function () {
+        var laytpl = layui.laytpl;
+        // console.log(data);
+        var getTpl = document.getElementById('TPL').innerHTML; // 获取模板字符
+        var elemView = document.getElementById('view'); // 视图对象
+        // 渲染并输出结果
+        laytpl(getTpl).render(pagedata, function (str) {
+            elemView.innerHTML = str;
+        });
+    });
+
+    
+</script>
+
+</html>

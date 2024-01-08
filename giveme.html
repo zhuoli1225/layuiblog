@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>赞助我</title>
+    <link rel="shortcut icon" href="./static/images/logo.jpg" type="image/x-icon">
+    <link href="./lib/layui-v2.9.3/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <script src="./lib/layui-v2.9.3/layui/layui.js"></script>
+
+    <div class="myNav layui-bg-gray">
+        <ul class="layui-nav layui-bg-gray">
+            <li class="layui-nav-item"><img class="nav-logo" src="./static/images/logo.jpg" alt="logo加载失败"></li>
+            <li class="layui-nav-item"><a href="./index.html">首页</a></li>
+            <li class="layui-nav-item"><a href="./list.html">文章列表</a></li>
+            <li class="layui-nav-item"><a href="./giveme.html">留言</a></li>
+            <li class="layui-nav-item"><a href="./aboutme.html">关于我</a></li>
+            <li class="layui-nav-item"><a href="./manage.html">新增文章</a></li>
+        </ul>
+    </div>
+    <div class="layui-container">
+        <div class="layui-row layui-col-space15">
+            <div class="content-body">
+                <!-- 留言板面板 -->
+                <div class="blog-item">
+                    <fieldset class="layui-elem-field" style="text-align: left;">
+                        <legend>主人寄语</legend>
+                        <div class="layui-field-box" style="padding: 20px 100px;">
+                            有什么话想对我说呢？
+                        </div>
+                    </fieldset>
+                    <!-- 留言 -->
+                    <style>
+                        .layui-field-box span:hover {
+                            cursor: pointer;
+                            background-color: #FFFFFF;
+                            color: #000000;
+                        }
+                    </style>
+                    <fieldset class="layui-elem-field" style="text-align: left;">
+                        <legend>留言板</legend>
+                        <div class="layui-field-box" style="padding-top: 20px;padding-left: 60px;">
+                            <!-- 留言内容 -->
+                            <div class="message1" style="overflow: hidden;margin-top: 20px;">
+                                <div style="display: block;margin-left: 20px;float: left;margin-top: 5px;">
+                                    <p style="margin-top: 5px;margin-left: 30px;">写的不错，继续加油</p>
+                                </div>
+                            </div>
+                            <hr style="display: block;margin-top: 25px;margin-bottom: 25px;" />
+                            <div class="message1" style="overflow: hidden;">
+                                <div style="display: block;margin-left: 20px;float: left;margin-top: 5px;">
+                                    <p style="margin-top: 5px;margin-left: 30px;">支持 支持 支持</p>
+                                </div>
+                            </div>
+                            <hr style="display: block;margin-top: 25px;margin-bottom: 25px;" />
+                            <div class="liuyan" style="overflow: hidden;margin-top: 20px;"></div>
+                            <!-- 我要留言 -->
+                            <div class="container" style="margin-top: 60px;">
+                                <form class="layui-form layui-form-pane" action="">
+                                    <div class="layui-form-item layui-form-text">
+                                        <label class="layui-form-label">我要留言</label>
+                                        <div class="layui-input-block">
+                                            <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="layui-form-item">
+                                        <button class="layui-btn" lay-submit="" lay-filter="demo2">留言</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+</body>
+
+<script>
+    window.onload = function() {
+        // 获取留言按钮
+        var btn = document.querySelector('.layui-btn');
+        // 获取文本框
+        var textarea = document.querySelector('.layui-textarea');
+
+        // 为按钮添加点击事件
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();  // 阻止表单的默认提交行为
+            var message = textarea.value;  // 获取文本框的值
+
+            // 创建一个新的元素来显示留言
+            var newMessage = document.createElement('p');
+            newMessage.textContent = message;
+            newMessage.style.marginTop = '5px';
+            newMessage.style.marginLeft = '30px';
+
+            var myhr = document.createElement('hr');
+            myhr.style.display = 'block';
+            myhr.style.marginTop = '25px';
+            myhr.style.marginBottom = '25px';
+
+            // 将新的留言添加到页面中
+            var messageBoard = document.querySelector('.liuyan');
+            messageBoard.appendChild(newMessage);
+            messageBoard.appendChild(myhr);
+
+            alert("这里添加成功，用js动态渲染，关闭页面后就会消失。因为这个就一个文本框好写哈哈哈哈")
+            textarea.value = ""
+        });
+    }
+</script>
+
+<style>
+ 
+</style>
+
+</html>
